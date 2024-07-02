@@ -61,5 +61,10 @@ if __name__ == "__main__":
     ip = input("Enter IP (127.0.0.1) : ")
     port = input("Enter port (40674) : ")
 
+    if ip == "":
+        ip = "127.0.0.1"
+    if port == "":
+        port = 40674
+
     client = Client(ip,port)
     client.start()
