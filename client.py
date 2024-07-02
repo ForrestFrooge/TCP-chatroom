@@ -58,13 +58,22 @@ class Client():
 
 
 if __name__ == "__main__":
+    os.system("cls" if os.name == "nt" else "clear")
     ip = input("Enter IP (127.0.0.1) : ")
-    port = input("Enter port (40674) : ")
 
+    port_input = input("Enter port (40674): ")
+    
     if ip == "":
         ip = "127.0.0.1"
-    if port == "":
+    
+    if port_input == "":
         port = 40674
+    else:
+        try:
+            port = int(port_input)
+        except ValueError:
+            print("Please enter a valid integer for the port")
+            os.abort()
 
     client = Client(ip,port)
     client.start()
